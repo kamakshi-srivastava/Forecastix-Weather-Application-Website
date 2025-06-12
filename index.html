@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Weather Application</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="style.css">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+	</head>
+
+
+	<body>
+		
+		<div class="site-content">
+			<div class="site-header">
+				<div class="container">
+					<a href="index.html" class="branding">
+						 <img src="images/logo.jpeg" alt="" class="logo" width="150" height="auto">
+						<div class="logo-type">
+							<h1 class="site-title">Forecastix</h1>
+							<small class="site-description">Your Personal Weather Assistant!</small>
+						</div>
+					</a>
+
+					<!-- Custom Navbar -->
+<div class="main-navigation">
+    <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+    <ul class="menu">
+        <li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
+
+        <li class="menu-item"><a href="about.html">About This App</a></li>
+
+        <li class="menu-item"><a href="usage.html">Usage Guide</a></li>
+        
+        <li class="menu-item"><a href="faq.html">FAQs</a></li>
+
+        <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+    </ul> <!-- .menu -->
+</div> <!-- .main-navigation -->
+
+
+					<div class="mobile-navigation"></div>
+
+				</div>
+			</div> <!-- .site-header -->
+
+			<div class="hero" data-bg-image="images/banner.png">
+				<div class="container">
+<!-- Search Form -->
+<form action="#" class="find-location">
+  <input type="text" placeholder="Find your location..." />
+  <input type="submit" value="Find" />
+</form>
+
+<!-- Toggle Buttons OUTSIDE the form -->
+<div style="margin-top: 20px; text-align: center;">
+  <button onclick="toggleTemperature()" class="btn">Toggle °C / °F</button>
+  <button onclick="toggleMode()" class="btn">Toggle Light/Dark Mode</button>
+</div>
+
+				</div>
+			</div><br><br>
+<br><br>
+			<div class="forecast-table" style="display: flex; justify-content: center; padding: 40px 0;">
+  <div class="container" style="max-width: 500px; width: 100%; ">
+    <div class="forecast-container" style="background-color: #e8f5e9; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); text-align: center; color: #000000;">
+      <div class="today forecast">
+        <div class="forecast-header" style="margin-bottom: 20px;">
+          <div class="day" id="day" style="font-size: 20px; font-weight: bold;"></div>
+          <div class="date" id="date" style="font-size: 16px;"></div>
+          <div class="time" id="time" style="font-size: 14px;"></div>
+        </div>
+
+        <div class="forecast-content">
+          <div class="location" style="font-size: 22px; font-weight: 600; margin-bottom: 10px;">Bengaluru</div>
+          <div class="degree" style="display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+            <div class="num" style="font-size: 40px;color: #000000; font-weight: bold;">23<sup>o</sup>C</div>
+            <div class="forecast-icon" style="margin-left: 10px;">
+              <img src="images/icons/icon-1.svg" alt="" width="90">
+            </div>  
+          </div>
+          <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+  <span><img src="images/icon-umberella.png" alt=""> <span id="humidity">--%</span></span>
+  <span><img src="images/icon-wind.png" alt=""> <span id="wind-speed">-- km/h</span></span>
+  <span><img src="images/icon-compass.png" alt=""> <span id="wind-direction">--</span></span>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div class="weather-container">
+    <h2>Weather Information for Other Major Cities</h2>
+    <table class="weather-table" style="background-color: #e8f5e9;">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Temperature (°C)</th>
+                <th>Humidity (%)</th>
+                <th>Air Pressure (hPa)</th>
+                <th>Wind Speed (m/s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="city-1">
+                <td>Delhi</td>
+                <td><span id="temp-1">32</span></td>
+                <td><span id="humidity-1">65</span></td>
+                <td><span id="pressure-1">1012</span></td>
+                <td><span id="wind-1">3.2</span></td>
+            </tr>
+            <tr id="city-2">
+                <td>Mumbai</td>
+                <td><span id="temp-2">30</span></td>
+                <td><span id="humidity-2">80</span></td>
+                <td><span id="pressure-2">1010</span></td>
+                <td><span id="wind-2">4.1</span></td>
+            </tr>
+            <tr id="city-3">
+                <td>Bangalore</td>
+                <td><span id="temp-3">28</span></td>
+                <td><span id="humidity-3">70</span></td>
+                <td><span id="pressure-3">1015</span></td>
+                <td><span id="wind-3">2.5</span></td>
+            </tr>
+            <tr id="city-4">
+                <td>Kolkata</td>
+                <td><span id="temp-4">34</span></td>
+                <td><span id="humidity-4">75</span></td>
+                <td><span id="pressure-4">1011</span></td>
+                <td><span id="wind-4">3.8</span></td>
+            </tr>
+            <tr id="city-5">
+                <td>Chennai</td>
+                <td><span id="temp-5">33</span></td>
+                <td><span id="humidity-5">85</span></td>
+                <td><span id="pressure-5">1008</span></td>
+                <td><span id="wind-5">4.5</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+const apiKey = "45aeae74468a97e13e71901617b832c3"; // replace with your OpenWeatherMap API key
+
+const form = document.querySelector('.find-location');
+const input = form.querySelector('input[type="text"]');
+const locationDiv = document.querySelector('.location');
+const degreeDiv = document.querySelector('.degree .num');
+const dayDiv = document.querySelector('.forecast-header .day');
+const dateDiv = document.querySelector('.forecast-header .date');
+const forecastIcon = document.querySelector('.forecast-content .forecast-icon img');
+
+// Toggle buttons (we add later)
+let isCelsius = true;
+
+// Fetch weather function
+async function getWeather(city) {
+    try {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        if (data.cod !== 200) {
+            alert('City not found!');
+            return;
+        }
+
+        const temp = Math.round(data.main.temp);
+        const humidity = data.main.humidity;
+        const windSpeed = data.wind.speed;
+        const windDeg = data.wind.deg;
+        const iconCode = data.weather[0].icon;
+        const weatherIcon = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+        // Convert degrees to direction
+        const directions = ["North", "NE", "East", "SE", "South", "SW", "West", "NW"];
+        const windDir = directions[Math.round(windDeg / 45) % 8];
+
+        const today = new Date();
+
+        // Update UI
+        locationDiv.textContent = data.name;
+        degreeDiv.innerHTML = isCelsius ? `${temp}<sup>o</sup>C` : `${Math.round(temp * 9/5 + 32)}<sup>o</sup>F`;
+        dayDiv.textContent = today.toLocaleDateString('en-US', { weekday: 'long' });
+        dateDiv.textContent = today.toLocaleDateString();
+        forecastIcon.src = weatherIcon;
+
+        // 🌧️ Update humidity, wind speed, wind direction
+        document.getElementById("humidity").textContent = `${humidity}%`;
+        document.getElementById("wind-speed").textContent = `${windSpeed} km/h`;
+        document.getElementById("wind-direction").textContent = windDir;
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+// Form Submit
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const city = input.value.trim();
+    if (city !== "") {
+        getWeather(city);
+    }
+});
+
+// Toggle Celsius/Fahrenheit
+function toggleTemperature() {
+    isCelsius = !isCelsius;
+    const currentCity = locationDiv.textContent;
+    if (currentCity) {
+        getWeather(currentCity);
+    }
+}
+
+// Light/Dark Mode
+function toggleMode() {
+    document.body.classList.toggle('dark-mode');
+}
+</script>
+
+
+
+<script>
+  // Function to format the date and time
+  function formatDateTime() {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const today = new Date();
+    const formattedDate = today.toLocaleDateString('en-US', options);
+    
+    // Get the day, month, day number, and year
+    const [day, month, dayNumber, year] = formattedDate.split(' ');
+
+    // Get the current time
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12; // Convert to 12-hour format
+    hours = hours ? hours : 12; // If hour is 0 (midnight), set it to 12
+    minutes = minutes < 10 ? '0' + minutes : minutes; // Add leading zero if needed
+    seconds = seconds < 10 ? '0' + seconds : seconds; // Add leading zero if needed
+
+    // Format time as HH:MM:SS AM/PM
+    const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+    // Set the content for day, date, and time dynamically
+    document.getElementById('day').textContent = day; // Day of the week (Monday, Tuesday, etc.)
+    document.getElementById('date').textContent = `${dayNumber} ${month}`; // Day and Month (6 Oct)
+    document.getElementById('time').textContent = timeString; // Current time (12:05:30 PM)
+  }
+
+  // Update the day, date, and time every second
+  setInterval(formatDateTime, 1000);
+
+  // Run the function initially to update on page load
+  window.onload = formatDateTime;
+</script>
+
+
+
+		
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
+		
+	</body>
+
+<br><br>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+    <a href="index.html">  <h4>Forecastix</h4> </a>
+      <p>Your personal weather app</p>
+ <a href="index.html">
+	<img src="images/logo.jpeg" alt="Weather App Logo" class="footer-logo" /></a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About This App</a></li>
+        <li><a href="usage.html">Usage Guide</a></li>
+	<li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        
+       
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Email: support@forecastix.com</p>
+      
+    </div>
+  </div>
+
+  
+</footer>
+
+
+
+</html>
